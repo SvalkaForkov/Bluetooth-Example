@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 	@IBOutlet weak var connectionStatus: UILabel!
 	@IBOutlet weak var sendDataButton: UIButton!
 	@IBOutlet weak var console: UITextView!
+	private var isConnected = false
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -31,21 +32,35 @@ class ViewController: UIViewController {
 		let userInfo = notification.userInfo as! [String: Bool]
 		dispatch_async(dispatch_get_main_queue(), {
 			// Set image based on connection status
-			if let isConnected: Bool = userInfo["isConnected"] {
-				if isConnected {
-					self.connectionStatus.text = "Connection Status: Connected"
-				} else {
-					self.connectionStatus.text = "Connection Status: Disconnected"
-				}
+			self.isConnected = userInfo["isConnected"] ?? false
+			if self.isConnected {
+				self.connectionStatus.text = "Connection Status: Connected"
+			} else {
+				self.connectionStatus.text = "Connection Status: Disconnected"
 			}
-		});
+
+		})
 	}
 
 	@IBAction func sendDataAction(sender: UIButton) {
-        guard let service = btDiscoverySharedInstance.bleService else {
-            return
-        }
-        service.writePosition(0xaa)
+		guard let service = btDiscoverySharedInstance.bleService else {
+			showFailAlert()
+			return
+		}
+		if isConnected {
+			service.writePosition(0xaa)
+		} else {
+			showFailAlert()
+		}
+	}
+
+	func showFailAlert() {
+		let alert = UIAlertController(title: "Error", message: "You need to be connect to be able to write something", preferredStyle: .Alert)
+		let ok = UIAlertAction(title: "Ok", style: .Default) { (action) in
+			alert.dismissViewControllerAnimated(true, completion: nil)
+		}
+		alert.addAction(ok)
+		self.presentViewController(alert, animated: true, completion: nil)
 	}
 }
 
