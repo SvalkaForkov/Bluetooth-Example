@@ -41,11 +41,36 @@ class ViewController: UIViewController {
 		});
 	}
 
+	// MARK: Actions
+
 	@IBAction func sendDataAction(sender: UIButton) {
-        guard let service = btDiscoverySharedInstance.bleService else {
-            return
-        }
-        service.writePosition(0xaa)
+		showAlert()
+	}
+
+	// MARK: Methods
+
+	private func showAlert() {
+		let alert = UIAlertController(title: "Message", message: "Write whatever you want to send to the device", preferredStyle: .Alert)
+		var keyTextfield: UITextField!
+		alert.addTextFieldWithConfigurationHandler { (textfield) in
+			textfield.placeholder = "Text"
+			keyTextfield = textfield
+		}
+		let confirm = UIAlertAction(title: "Send", style: .Default) { [weak self](action) in
+			guard let text = keyTextfield.text else { return }
+			self?.sendData(text)
+		}
+		alert.addAction(confirm)
+		let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+			alert.dismissViewControllerAnimated(true, completion: nil)
+		}
+		alert.addAction(cancel)
+		self.presentViewController(alert, animated: true, completion: nil)
+	}
+
+	private func sendData(text: String) {
+		guard let service = btDiscoverySharedInstance.bleService else { return }
+		service.writePosition(text)
 	}
 }
 

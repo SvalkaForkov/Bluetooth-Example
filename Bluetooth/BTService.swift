@@ -89,13 +89,12 @@ class BTService: NSObject, CBPeripheralDelegate {
 
 	// Mark: - Private
 
-	func writePosition(value: UInt8) {
+	func writePosition(text: String) {
 		// See if characteristic has been discovered before writing to it
 		if let writeCharacteristic = self.writeCharacteristic {
 			// Need a mutable var to pass to writeValue function
-			var charValue = value
-			let data = NSData(bytes: &charValue, length: sizeof(UInt8))
-			self.peripheral?.writeValue(data, forCharacteristic: writeCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
+			guard let textData = text.dataUsingEncoding(NSUTF8StringEncoding) else { return }
+			self.peripheral?.writeValue(textData, forCharacteristic: writeCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
 		}
 	}
 
