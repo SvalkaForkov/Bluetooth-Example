@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F27C0A5757CDCDE667228CEF /* Pods_Bluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF3C925124E9E006427287D /* Pods_Bluetooth.framework */; };
 		FB4BB6DE1D6F4A3600EFA5D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BB6DD1D6F4A3600EFA5D5 /* AppDelegate.swift */; };
 		FB4BB6E01D6F4A3600EFA5D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BB6DF1D6F4A3600EFA5D5 /* ViewController.swift */; };
 		FB4BB6E31D6F4A3600EFA5D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4BB6E11D6F4A3600EFA5D5 /* Main.storyboard */; };
@@ -17,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		019B33661B66313EE1810567 /* Pods-Bluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bluetooth.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bluetooth/Pods-Bluetooth.release.xcconfig"; sourceTree = "<group>"; };
+		302854D88A6BD7D154A2D704 /* Pods-Bluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bluetooth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bluetooth/Pods-Bluetooth.debug.xcconfig"; sourceTree = "<group>"; };
+		5FF3C925124E9E006427287D /* Pods_Bluetooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bluetooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB4BB6DA1D6F4A3600EFA5D5 /* Bluetooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bluetooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB4BB6DD1D6F4A3600EFA5D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB4BB6DF1D6F4A3600EFA5D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F27C0A5757CDCDE667228CEF /* Pods_Bluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		096CCD398F46B9A7184A79C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FF3C925124E9E006427287D /* Pods_Bluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D49C0A03F15AE7B4F6CEF95 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				302854D88A6BD7D154A2D704 /* Pods-Bluetooth.debug.xcconfig */,
+				019B33661B66313EE1810567 /* Pods-Bluetooth.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FB4BB6D11D6F4A3600EFA5D5 = {
 			isa = PBXGroup;
 			children = (
 				FB4BB6DC1D6F4A3600EFA5D5 /* Bluetooth */,
 				FB4BB6DB1D6F4A3600EFA5D5 /* Products */,
+				5D49C0A03F15AE7B4F6CEF95 /* Pods */,
+				096CCD398F46B9A7184A79C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB4BB6EC1D6F4A3600EFA5D5 /* Build configuration list for PBXNativeTarget "Bluetooth" */;
 			buildPhases = (
+				E66822BF6FDD298299EB1E4E /* [CP] Check Pods Manifest.lock */,
 				FB4BB6D61D6F4A3600EFA5D5 /* Sources */,
 				FB4BB6D71D6F4A3600EFA5D5 /* Frameworks */,
 				FB4BB6D81D6F4A3600EFA5D5 /* Resources */,
+				81E10D9A23765A855C151265 /* [CP] Embed Pods Frameworks */,
+				6593F51035F3518D2F2F4D8D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,6 +162,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6593F51035F3518D2F2F4D8D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bluetooth/Pods-Bluetooth-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81E10D9A23765A855C151265 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bluetooth/Pods-Bluetooth-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E66822BF6FDD298299EB1E4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FB4BB6D61D6F4A3600EFA5D5 /* Sources */ = {
@@ -257,6 +332,7 @@
 		};
 		FB4BB6ED1D6F4A3600EFA5D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 302854D88A6BD7D154A2D704 /* Pods-Bluetooth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Bluetooth/Info.plist;
@@ -269,6 +345,7 @@
 		};
 		FB4BB6EE1D6F4A3600EFA5D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 019B33661B66313EE1810567 /* Pods-Bluetooth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Bluetooth/Info.plist;
@@ -298,6 +375,7 @@
 				FB4BB6EE1D6F4A3600EFA5D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
